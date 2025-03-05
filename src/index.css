@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #747579;
+  --color-secondary: #9c9da1;
+--color-bg-primary: #f3f5f7;
+
+  --bg-color-primary: #f3f5f7;
+  --bg-color-white: #ffffff;
+
+  --color-white: #ffffff;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
