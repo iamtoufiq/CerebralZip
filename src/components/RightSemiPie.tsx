@@ -8,12 +8,12 @@ interface ApiResponse {
 }
 
 const RightSemiPie = () => {
-  const { data, loading, error } = useFetchData<ApiResponse>(
+  const { data, loading } = useFetchData<ApiResponse>(
     "sample_assignment_api_3/"
   );
 
   return (
-    <div className="flex flex-col gap-9 p-7 rounded-2xl bg-white w-full flex-1 overflow-hidden">
+    <div className="flex flex-col gap-9 p-7 rounded-2xl bg-white w-full flex-1 overflow-hidden max-h-[401px]">
       {loading ? (
         <div className="animate-pulse flex flex-col gap-5">
           <div className="h-32 w-32 rounded-full bg-gray-300 mx-auto"></div>

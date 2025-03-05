@@ -34,7 +34,7 @@ const RightMostlyPositive = () => {
   }, [data]);
   return (
     <div
-      className="flex flex-col p-6 gap-4 rounded-2xl bg-white w-full flex-1"
+      className="flex flex-col p-6 gap-4 rounded-2xl bg-white w-full"
     >
       <div id="_data" className="flex flex-col gap-[6px]">
         <p className="text-[12.3px] text-[#C1C1C3] leading-[14.89px]">

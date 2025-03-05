@@ -7,6 +7,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
 } from "chart.js";
 
 ChartJS.register(
@@ -52,7 +53,7 @@ const CompareBarChart = () => {
         categoryPercentage: 0.8,
         barPercentage: 0.4,
         grid: {
-          drawOnChartArea: false, // Remove grid lines on X-axis
+          drawOnChartArea: false,
           color: "transparent",
         },
         border: {
@@ -64,7 +65,7 @@ const CompareBarChart = () => {
         max: maxYValue, // Dynamically set max value
         ticks: {
           stepSize: 10000,
-          callback: (value) => `${value / 1000}k`, // Format labels (e.g., 10k)
+          callback: (value: number) => `${value / 1000}k`, // Format labels (e.g., 10k)
         },
         grid: {
           color: "#f3f5f7", // Set horizontal grid lines to blue
@@ -77,7 +78,7 @@ const CompareBarChart = () => {
     },
     plugins: {
       legend: {
-        position: "bottom",
+        position: "bottom" as const,
         labels: {
           boxWidth: 12,
           padding: 10,
@@ -87,6 +88,7 @@ const CompareBarChart = () => {
         mode: "index",
         intersect: false,
       },
+
     },
   };
 
@@ -99,7 +101,7 @@ const CompareBarChart = () => {
         margin: "auto",
       }}
     >
-      <Bar data={data} options={options} />
+     <Bar data={data} options={options as ChartOptions} />
     </div>
   );
 };

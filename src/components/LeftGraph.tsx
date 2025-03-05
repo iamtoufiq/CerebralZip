@@ -2,7 +2,7 @@ import ComparisonGraph from "./ComparisonGraph";
 
 const LeftGraph = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-5 lg:gap-7">
       <div id="_top-heading" className="flex items-center justify-between">
         <p className="text-[#7C7D81] text-[18.2px] leading-[22.03px] font-semibold">
           Comparison

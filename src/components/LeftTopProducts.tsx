@@ -25,7 +25,7 @@ const tableHeader = [
 ];
 const LeftTopProducts = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-1 lg:gap-2 mb-5 lg:mb-7">
       <div id="_top-heading" className="flex items-center justify-between">
         <p className="text-[#7C7D81] text-[18.2px] leading-[22.03px] font-semibold">
         Top Products

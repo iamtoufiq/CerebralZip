@@ -123,6 +123,10 @@ const LineChart: React.FC = () => {
   return (
     <div style={{ backgroundColor: "white", padding: "10px", height: "200px" }}>
     <Line options={options} data={data} />
+    <div id="_bottom" className="flex justify-around items-center">
+      <p className="text-[14.3px] leading-[17.31px] font-semibold text-[#838387]">1,304%</p>
+      <p className="text-[14.3px] leading-[17.31px] font-semibold text-[#838387]">473%</p>
+    </div>
   </div>
   );
 };
