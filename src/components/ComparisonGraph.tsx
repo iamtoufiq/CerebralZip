@@ -7,7 +7,6 @@ import {
   Title,
   Tooltip,
   Legend,
-  ChartOptions,
 } from "chart.js";
 
 ChartJS.register(
@@ -101,7 +100,7 @@ const CompareBarChart = () => {
         margin: "auto",
       }}
     >
-     <Bar data={data} options={options as ChartOptions} />
+     <Bar data={data} options={options as never} />
     </div>
   );
 };
