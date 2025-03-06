@@ -67,8 +67,7 @@ const CompareBarChart = () => {
           callback: (value: number) => `${value / 1000}k`, // Format labels (e.g., 10k)
         },
         grid: {
-          color: "#f3f5f7", // Set horizontal grid lines to blue
-          // drawTicks: false, // Prevent ticks from drawing across the Y-axis
+          color: "#f3f5f7",
         },
         border: {
           display: false,

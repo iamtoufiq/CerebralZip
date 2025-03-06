@@ -4,9 +4,7 @@ import { getCookie } from "../utils/cookies";
 
 const PrivateRoute: React.FC = () => {
   const location = useLocation();
-
   const token: string | undefined = getCookie("token")
-console.log(token)
   return token ? (
     <Outlet />
   ) : (

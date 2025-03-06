@@ -1,5 +1,4 @@
 import CustomersByDeviceChart from "./CustomersByDeviceChart";
-
 const RightCustomerByDevice = () => {
   return (
     <div className="flex flex-col gap-5 py-7 px-[30px] rounded-2xl bg-white w-full lg:min-h-[348px]">

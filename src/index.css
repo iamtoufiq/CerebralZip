@@ -9,6 +9,9 @@
   --bg-color-white: #ffffff;
 
   --color-white: #ffffff;
+  --color-light-gray: #8C8D91;
+  --color-secondary-light-gray: #7C7D81;
+  --color-blue-icon: #0066fd;
 }
 
 .no-scrollbar::-webkit-scrollbar {

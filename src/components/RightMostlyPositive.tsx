@@ -18,6 +18,7 @@ const RightMostlyPositive = () => {
   const [redWidth, setRedWidth] = useState(0);
   const [yellowWidth, setYellowWidth] = useState(0);
   const [greenWidth, setGreenWidth] = useState(0);
+  const [sentimentText, setSentimentText] = useState("");
 
   useEffect(() => {
     if (data) {
@@ -29,6 +30,13 @@ const RightMostlyPositive = () => {
           setYellowWidth((data.neutral / total) * 100);
           setGreenWidth((data.positive / total) * 100);
         }, 100);
+        setSentimentText(
+          data.positive >= data.neutral && data.positive >= data.negative
+            ? "Mostly Positive"
+            : data.neutral >= data.positive && data.neutral >= data.negative
+            ? "Neutral"
+            : "Mostly Negative"
+        );
       }
     }
   }, [data]);
@@ -41,7 +49,7 @@ const RightMostlyPositive = () => {
           Community feedback
         </p>
         <h3 className="text-[17.8px] text-[#7B7B80] leading-[21.54px] font-semibold ">
-          Mostly positive
+          {sentimentText}
         </h3>
       </div>
       <div id="_bar" className="bg-white h-3 w-full flex rounded overflow-hidden gap-[2px]">

@@ -8,37 +8,52 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { offline_sales, web_sales } from "../constants/salesData";
+import useFetchData from "../hooks/useFetchData";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend
+);
 
-
+interface CustomersData {
+  date2: string;
+  unique_count: number;
+  cumulative_tweets: number;
+}
 
 const LineChart: React.FC = () => {
-
+  const { data: apiData } = useFetchData<CustomersData>(
+    "sample_assignment_api_4/"
+  );
+  console.log(apiData);
   const data = {
     labels: ["23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"],
     datasets: [
-        {
-            label: "Web sales",
-            fill: false,
-            lineTension: 0.3,
-            backgroundColor: "#e1f7f9",
-            borderColor: "#e1f7f9",
-            borderWidth: 2, // Make the line thinner (default is usually 3)
-            borderCapStyle: "round",
-            borderJoinStyle: "round",
-            pointBorderColor: "#e1f7f9",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 2,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "#e1f7f9",
-            pointHoverBorderColor: "#fff",
-            pointHoverBorderWidth: 5,
-            pointRadius: 0,
-            pointHitRadius: 5,
-            data: [0, 14, 21, 9, 35, 31, 36],
-          }
-,
+      {
+        label: "Web sales",
+        fill: false,
+        lineTension: 0.3,
+        backgroundColor: "#e1f7f9",
+        borderColor: "#e1f7f9",
+        borderWidth: 2,
+        borderCapStyle: "round",
+        borderJoinStyle: "round",
+        pointBorderColor: "#e1f7f9",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 2,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "#e1f7f9",
+        pointHoverBorderColor: "#fff",
+        pointHoverBorderWidth: 5,
+        pointRadius: 0,
+        pointHitRadius: 5,
+        data: web_sales,
+      },
       {
         label: "Offline selling",
         fill: false,
@@ -56,7 +71,7 @@ const LineChart: React.FC = () => {
         pointHoverBorderWidth: 5,
         pointRadius: 0,
         pointHitRadius: 5,
-        data: [5, 15, 10, 50 ,30, 80],
+        data: offline_sales,
       },
     ],
   };
@@ -79,21 +94,21 @@ const LineChart: React.FC = () => {
         },
         grid: {
           drawTicks: false,
-          display: false, // Hide horizontal grid lines
+          display: false,
         },
         border: {
-          display: false, // **This hides the Y-axis line**
+          display: false,
         },
       },
       x: {
         ticks: {
-          display: false, // Hide X-axis labels
+          display: false,
         },
         grid: {
-          display: false, // Hide vertical grid lines
+          display: false,
         },
         border: {
-          display: false, // **This hides the X-axis line**
+          display: false,
         },
       },
     },
@@ -117,17 +132,18 @@ const LineChart: React.FC = () => {
     },
   };
 
-
-
-
   return (
     <div style={{ backgroundColor: "white", padding: "10px", height: "200px" }}>
-    <Line options={options as never} data={data as never} />
-    <div id="_bottom" className="flex justify-around items-center">
-      <p className="text-[14.3px] leading-[17.31px] font-semibold text-[#838387]">1,304%</p>
-      <p className="text-[14.3px] leading-[17.31px] font-semibold text-[#838387]">473%</p>
+      <Line options={options as never} data={data as never} />
+      <div id="_bottom" className="flex justify-around items-center">
+        <p className="text-[14.3px] leading-[17.31px] font-semibold text-[#838387]">
+          1,304%
+        </p>
+        <p className="text-[14.3px] leading-[17.31px] font-semibold text-[#838387]">
+          473%
+        </p>
+      </div>
     </div>
-  </div>
   );
 };
 

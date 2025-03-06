@@ -6,7 +6,7 @@ const LeftHeader = () => {
     <div className="flex items-center gap-2 ">
       <span className="text-[#96969A] text-sm leading-[17.19px] font-semibold">Compare to</span>
       <aside className="relative bg-white">
-          <select className=" py-1.5 pl-3.5 pr-9 appearance-none hover:cursor-pointer bg-bg-primary border-0  border-border rounded-md text-text  focus:appearance-none focus:outline-none  text-[#8C8D91] ">
+          <select className=" py-1.5 pl-3.5 pr-9 appearance-none hover:cursor-pointer bg-bg-primary border-0  border-border rounded-md text-text  focus:appearance-none focus:outline-none  text-light-gray ">
             <option>This Months</option>
             <option>Last Month</option>
           </select>

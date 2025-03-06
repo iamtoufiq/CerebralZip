@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "../utils/cookies";
+import { loginUser } from "../services/authService";
 
 const initialState = {
   UserName: "trial",
@@ -18,34 +19,18 @@ const Login = () => {
       setLoginInfo((prev) => ({ ...prev, loading: true }));
 
       try {
-        const response = await fetch("http://3.111.196.92:8020/api/v1/login/", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: loginInfo.UserName,
-            email: "string",
-            password: loginInfo.password,
-            phone_number: "string",
-            input_code: 0
-          }),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.message || "Login failed!");
-        }
-        setCookie("token", data.message || "", 1); // Token expires in 7 days
-        navigate("/")
+        const loginDetails = {
+          username: loginInfo.UserName,
+          email: "string",
+          password: loginInfo.password,
+          phone_number: "string",
+          input_code: 0,
+        };
+        const data = await loginUser(loginDetails);
+        setCookie("token", data.message || "", 1); // Token expires in 1 day
+        navigate("/");
       } catch (err) {
-        if (err instanceof Error) {
-          alert(err.message);
-        } else {
-          alert("Something went wrong!");
-        }
+        alert(err instanceof Error ? err.message : "Something went wrong!");
         console.error(err);
       } finally {
         setLoginInfo((prev) => ({ ...prev, loading: false }));
@@ -59,9 +44,9 @@ const Login = () => {
       <div className="w-full md:max-w-md mx-5 md:mx-0 bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-4">Login</h2>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} className="flex flex-col gap-4">
           {/* UserName Input */}
-          <div className="mb-4">
+          <div className="flex flex-col gap-1">
             <label className="block text-gray-600 text-sm mb-1">UserName</label>
             <input
               value={loginInfo.UserName}
@@ -74,7 +59,7 @@ const Login = () => {
           </div>
 
           {/* Password Input */}
-          <div className="mb-4">
+          <div className="flex flex-col gap-1">
             <label className="block text-gray-600 text-sm mb-1">Password</label>
             <input
               value={loginInfo.password}
@@ -89,7 +74,7 @@ const Login = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md cursor-pointer hover:bg-blue-700 transition disabled:opacity-50"
+            className="mt-4 md:mt-6w-full bg-[#005dde] text-white py-2 rounded-md cursor-pointer hover:opacity-90 transition disabled:opacity-50"
             disabled={loginInfo.loading}
           >
             {loginInfo.loading ? "Logging in..." : "Login"}

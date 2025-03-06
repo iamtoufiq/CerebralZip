@@ -13,7 +13,7 @@ const RightSemiPie = () => {
   );
 
   return (
-    <div className="flex flex-col gap-9 p-7 rounded-2xl bg-white w-full flex-1 overflow-hidden max-h-[401px]">
+    <div className="flex flex-col gap-9 p-7 rounded-2xl bg-white w-full flex-1 overflow-hidden max-h-[401px] md:text-center xl:text-left">
       {loading ? (
         <div className="animate-pulse flex flex-col gap-5">
           <div className="h-32 w-32 rounded-full bg-gray-300 mx-auto"></div>
@@ -31,7 +31,7 @@ const RightSemiPie = () => {
               {data?.message || ""}
             </p>
           </div>
-          <button className="max-w-fit cursor-pointer pl-[15px] pt-[13px] pb-3 text-[13.8px] leading-[16.7px] font-semibold text-[#939497]">
+          <button className="max-w-fit cursor-pointer pl-[15px] pt-[13px] pb-3 text-[13.8px] leading-[16.7px] font-semibold text-[#939497] md:mx-auto xl:mx-0" >
             Improve your score
           </button>
         </>

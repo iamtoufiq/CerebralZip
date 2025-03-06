@@ -52,7 +52,7 @@ const LeftPrice = () => {
       {
         updatedData.map((curData)=>{
          return   <div id="_first" key={curData.id} className="flex flex-col gap-5">
-         <p className="leading-[14.52px] text-xs font-semibold text-[#C2C3C6]">
+         <p className="leading-[14.52px] text-xs font-semibold text-[#C2C3C6] capitalize">
            {curData.title}
          </p>
          <div className="flex items-center gap-1">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import apiConfig from "../services/config";
 
 interface FetchResponse<T> {
   data: T | null;
@@ -6,13 +7,13 @@ interface FetchResponse<T> {
   error: string | null;
 }
 
-const BASE_URL = "http://3.111.196.92:8020/api/v1/";
+const BASE_URL = apiConfig.baseURL;
 const AUTH_HEADER = {
-  Accept: "application/json",
-  Authorization: "Basic dHJpYWw6YXNzaWdubWVudDEyMw==",
+  Accept: apiConfig.Accept,
+  Authorization: apiConfig.Authorization,
 };
 
-const useFetchData = <T,>(endpoint: string): FetchResponse<T> => {
+const useFetchData = <T>(endpoint: string): FetchResponse<T> => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

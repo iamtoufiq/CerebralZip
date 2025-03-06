@@ -27,11 +27,11 @@ const LeftTopProducts = () => {
   return (
     <div className="flex flex-col gap-1 lg:gap-2 mb-5 lg:mb-7">
       <div id="_top-heading" className="flex items-center justify-between">
-        <p className="text-[#7C7D81] text-[18.2px] leading-[22.03px] font-semibold">
+        <p className="text-secondary-light-gray text-[18.2px] leading-[22.03px] font-semibold">
         Top Products
         </p>
         <aside className="relative bg-white">
-          <select className=" py-1.5 pl-3.5 pr-9 appearance-none hover:cursor-pointer bg-bg-primary border border-[#CED0D7] rounded-md text-text  focus:appearance-none focus:outline-none  text-[#8C8D91] ">
+          <select className=" py-1.5 pl-3.5 pr-9 appearance-none hover:cursor-pointer bg-bg-primary border border-[#CED0D7] rounded-md text-text  focus:appearance-none focus:outline-none  text-light-gray ">
             <option>Full results</option>
           </select>
           <svg
